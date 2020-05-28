@@ -16,6 +16,9 @@ class Sketch : NSObject {
         // Create canvas object – specify size
         canvas = Canvas(width: 700, height: 700)
         
+        // Create a big circle
+        canvas.drawEllipse(at: Point(x: canvas.width / 2, y: canvas.height / 2), width: canvas.width, height: canvas.width)
+        
         // No fill on canvas
         canvas.drawShapesWithFill = false
         
@@ -39,6 +42,9 @@ class Sketch : NSObject {
        
         // Clear the canvas
         clearCanvas()
+        
+        // Create a big circle
+        canvas.drawEllipse(at: Point(x: canvas.width / 2, y: canvas.height / 2), width: canvas.width, height: canvas.width)
         
         // Update the position of the agent
         for agent in agents {
