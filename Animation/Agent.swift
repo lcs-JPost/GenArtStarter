@@ -36,8 +36,13 @@ class Agent {
         centre = Point(x: centre.x + velocity.x,
                        y: centre.y + velocity.y)
         
+        // bounce at the inner edges
+        bounceAtInnerEdges()
+        
         // Bounce at edges
         bounceAtEdge()
+        
+
         
         // Draw a circle at this point
         c.drawEllipse(at: centre, width: radius * 2, height: radius * 2)
@@ -60,5 +65,27 @@ class Agent {
         
     }
     
-    
+    //bounce at the borders of the inner square
+    func bounceAtInnerEdges() {
+        
+        // Bounce at top and bottom edges
+        if centre.y < CGFloat(c.height) - 250  && centre.y > 250 {
+            if centre.x < 450 && centre.x > 250 {
+                velocity.y *= -1
+                c.drawLine(from: centre, to: Point(x: c.width / 2, y: c.height / 2))
+            }
+        }
+        
+        // Bounce at left and right edges
+            if centre.x < CGFloat(c.width) - 250  && centre.x > 250 {
+                if centre.y < 450 && centre.y > 250 {
+                    velocity.x *= -1
+                    c.drawLine(from: centre, to: Point(x: c.width / 2, y: c.height / 2))
+            }
+        }
+        
+    }
 }
+    
+    
+
