@@ -48,6 +48,24 @@ class Agent {
         c.drawEllipse(at: centre, width: radius * 2, height: radius * 2)
         
     }
+
+    // Returns true when this agent is overlapping another agent
+    func isOverlapping(this: Agent) -> Bool {
+        
+        if distanceBetween(a: self.centre, b: this.centre) < CGFloat(self.radius) + CGFloat(this.radius) {
+            return true
+        } else {
+            return false
+        }
+        
+    }
+    
+    // Finds the distance between this agent and another agent
+    func distanceBetween(a: Point, b: Point) -> CGFloat {
+        
+        return sqrt(pow(b.x - a.x, 2) + pow(b.y - a.y, 2))
+        
+    }
     
     // Bounce the agent when it hit's an edge
     func bounceAtEdge() {
