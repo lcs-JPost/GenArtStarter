@@ -26,20 +26,28 @@ class Sketch : NSObject {
         
         
         // Create many instances of the Agent structure
-        for _ in 1...15 {
+        for _ in 1...10 {
             
 //            let anotherAgent = Agent(centre: Point(x: canvas.width / 2, y: canvas.height - 20),
 //                                     radius: 100,
 //                                     velocity: Vector(x: Double.random(in: -2...2),
 //                                                      y: Double.random(in: -2...2)),
 //                                     drawsUpon: canvas)
-            let anotherAgent = Agent(centre: Point(x: Int.random(in: 50...canvas.width - 50), y: Int.random(in: 50...canvas.height - 50)),
+            let anotherAgent = Agent(centre: Point(x: canvas.width / 2, y: canvas.height - 50),
                                      radius: 50,
                                      velocity: Vector(x: Double.random(in: -2...2),
                                                       y: Double.random(in: -2...2)),
                                      drawsUpon: canvas)
 
             agents.append(anotherAgent)
+            
+            let anotherAgent2 = Agent(centre: Point(x: canvas.width / 2, y: 50),
+                                     radius: 50,
+                                     velocity: Vector(x: Double.random(in: -2...2),
+                                                      y: Double.random(in: -2...2)),
+                                     drawsUpon: canvas)
+
+            agents.append(anotherAgent2)
         }
         
 
